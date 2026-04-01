@@ -1,0 +1,306 @@
+/**
+ * Learnlight Design System — CSS Custom Properties
+ * Token names mirror those used in the Storybook foundation stories:
+ *   Color Palette, Typography, Borders, Shadows, Spacing, Radius
+ */
+
+:root {
+
+  /* ── Color: Backgrounds ─────────────────────────────────────────────────── */
+  --background-primary:           #ffffff;
+  --background-secondary:         #f5f6f7;
+  --background-invert:            #092f42;
+  --background-invert-secondary:  #5d7682;
+  --background-brand:             #0276b1;
+  --background-disabled:          #b3bec4;
+  --background-blue-light:        #e3f4fd;
+  --background-green-light:       #ecf9f1;
+  --background-yellow-light:      #fff3d2;
+  --background-red-light:         #fcdfe0;
+  --background-green:             #2c8150;
+  --background-error:             #fef5f5;
+  --background-warning:           #fffbf5;
+  --background-info:              #fafdff;
+
+  /* ── Color: Text ────────────────────────────────────────────────────────── */
+  --text-primary:   #092f42;
+  --text-secondary: #5d7682;
+  --text-brand:     #0276b1;
+  --text-invert:    #ffffff;
+  --text-error:     #ca2b34;
+  --text-warning:   #a35905;
+  --text-green:     #287147;
+  --text-disabled:  #b3bec4;
+
+  /* ── Color: Interaction ─────────────────────────────────────────────────── */
+  --link:   #0276b1;
+  --focus:  #0276b1;
+  --accent: #0276b1;
+  --hover:  rgba(0, 0, 0, 0.04);
+
+  /* ── Color: Borders ─────────────────────────────────────────────────────── */
+  --border-color-primary:   #dfe4e6;
+  --border-color-secondary: #f5f6f7;
+  --border-color-brand:     #0276b1;
+  --border-color-error:     #d83b46;
+  --border-color-warning:   #f0a505;
+  --border-color-info:      #0276b1;
+  --border-color-green:     #309159;
+
+  /* ── Color: Graph ───────────────────────────────────────────────────────── */
+  --graph-minimum-required: #ffebb5;
+  --graph-empty:            #b7e4fb;
+  --graph-achieved:         #0276b1;
+  --graph-na-empty:         #c2cbd0;
+  --graph-na-min-required:  #ebeef0;
+
+  /* ── Color: Illustrations ───────────────────────────────────────────────── */
+  --illustration-bg-light:       #f5f6f7;
+  --illustration-bg-dark:        #0276b1;
+  --illustration-bg-dark2:       #2c2244;
+  --illustration-hair-dark:      #2c2244;
+  --illustration-hair-color:     #ae5b67;
+  --illustration-skin-light:     #feb3b3;
+  --illustration-skin-shade:     #ed6868;
+  --illustration-skin-dark:      #9f505c;
+  --illustration-eyes:           #ed6868;
+  --illustration-teeth:          #fafbfb;
+  --illustration-clothing-color: #d0c8e5;
+  --illustration-clothing-dark:  #2c2244;
+  --illustration-clothing-light: #ffffff;
+  --illustration-object-blue:    #b7e4fb;
+  --illustration-obj-purple-sh1: #d0c8e5;
+  --illustration-obj-purple-sh2: #9f8dc8;
+  --illustration-lines:          #dfe4e6;
+  --illustration-bg-white:       #ffffff;
+
+  /* ── Base Scale: Blue ───────────────────────────────────────────────────── */
+  --blue-10:  #fafdff;
+  --blue-50:  #e3f4fd;
+  --blue-100: #b7e4fb;
+  --blue-200: #65c6f6;
+  --blue-300: #0ea3ec;
+  --blue-400: #038fd3;
+  --blue-500: #0276b1;
+  --blue-600: #086fa1;
+  --blue-700: #09608b;
+  --blue-800: #045176;
+  --blue-900: #063b55;
+
+  /* ── Base Scale: Neutrals ───────────────────────────────────────────────── */
+  --neutral-0:   #ffffff;
+  --neutral-10:  #fafbfb;
+  --neutral-20:  #f5f6f7;
+  --neutral-30:  #ebeef0;
+  --neutral-40:  #dfe4e6;
+  --neutral-50:  #c2cbd0;
+  --neutral-60:  #b3bec4;
+  --neutral-70:  #a6b4bb;
+  --neutral-80:  #98a8b0;
+  --neutral-90:  #899ba4;
+  --neutral-100: #7a8f99;
+  --neutral-200: #6b828e;
+  --neutral-300: #5d7682;
+  --neutral-400: #506b79;
+  --neutral-500: #425f6d;
+  --neutral-600: #355464;
+  --neutral-700: #244657;
+  --neutral-800: #15394b;
+  --neutral-900: #092f42;
+
+  /* ── Base Scale: Red ────────────────────────────────────────────────────── */
+  --red-10:  #fef5f5;
+  --red-50:  #fcdfe0;
+  --red-100: #fac7ca;
+  --red-200: #f3a5aa;
+  --red-300: #e8787f;
+  --red-400: #e65c64;
+  --red-500: #d83b46;
+  --red-600: #ca2b34;
+  --red-700: #ae2931;
+  --red-800: #9a282f;
+  --red-900: #5c171b;
+
+  /* ── Base Scale: Orange ─────────────────────────────────────────────────── */
+  --orange-10:  #fffbf5;
+  --orange-50:  #fef1dc;
+  --orange-100: #fce7c9;
+  --orange-200: #fcd9ab;
+  --orange-300: #fece8f;
+  --orange-400: #ffc170;
+  --orange-500: #ffab3d;
+  --orange-600: #ff9a1f;
+  --orange-700: #f78b08;
+  --orange-800: #df7a07;
+  --orange-900: #a35905;
+
+  /* ── Base Scale: Yellow ─────────────────────────────────────────────────── */
+  --yellow-10:  #fffbf5;
+  --yellow-50:  #fff3d2;
+  --yellow-100: #ffebb5;
+  --yellow-200: #ffe291;
+  --yellow-300: #ffd45e;
+  --yellow-400: #ffcc3f;
+  --yellow-500: #ffbb0f;
+  --yellow-600: #f0a505;
+  --yellow-700: #d69200;
+  --yellow-800: #b67402;
+  --yellow-900: #8d5501;
+
+  /* ── Base Scale: Green ──────────────────────────────────────────────────── */
+  --green-10:  #ecf9f1;
+  --green-50:  #c5edd5;
+  --green-100: #8dd8ac;
+  --green-200: #4ac97f;
+  --green-300: #38a867;
+  --green-400: #309159;
+  --green-500: #2c8150;
+  --green-600: #287147;
+  --green-700: #246640;
+  --green-800: #1f5736;
+  --green-900: #174028;
+
+  /* ── Base Scale: Burgundy ───────────────────────────────────────────────── */
+  --burgundy-10:  #f9ebee;
+  --burgundy-50:  #f1d0d5;
+  --burgundy-100: #e5aeb6;
+  --burgundy-200: #de919c;
+  --burgundy-300: #d17a87;
+  --burgundy-400: #be6a76;
+  --burgundy-500: #ae5b67;
+  --burgundy-600: #9f505c;
+  --burgundy-700: #914651;
+  --burgundy-800: #7f3943;
+  --burgundy-900: #632c34;
+
+  /* ── Base Scale: Purple ─────────────────────────────────────────────────── */
+  --purple-10:  #edebf5;
+  --purple-50:  #d0c8e5;
+  --purple-100: #b3a5d4;
+  --purple-200: #9f8dc8;
+  --purple-300: #9481c1;
+  --purple-400: #8874b9;
+  --purple-500: #7a63b1;
+  --purple-600: #6e55aa;
+  --purple-700: #5f4992;
+  --purple-800: #4d3c77;
+  --purple-900: #2c2244;
+
+  /* ── Base Scale: Salmon ─────────────────────────────────────────────────── */
+  --salmon-10:  #fffafa;
+  --salmon-50:  #feebeb;
+  --salmon-100: #fedcdc;
+  --salmon-200: #ffcccc;
+  --salmon-300: #fec3c3;
+  --salmon-400: #feb3b3;
+  --salmon-500: #fd9b9b;
+  --salmon-600: #fa8989;
+  --salmon-700: #f87777;
+  --salmon-800: #ed6868;
+  --salmon-900: #d65757;
+
+  /* ── Spacing ─────────────────────────────────────────────────────────────── */
+  --spacing-none:                         0px;
+  --spacing-extra-extra-extra-small:      2px;
+  --spacing-extra-extra-small:            4px;
+  --spacing-extra-small:                  8px;
+  --spacing-small:                        12px;
+  --spacing-medium:                       16px;
+  --spacing-large:                        24px;
+  --spacing-extra-large:                  32px;
+  --spacing-extra-extra-large:            48px;
+  --spacing-extra-extra-extra-large:      64px;
+
+  /* ── Radius ──────────────────────────────────────────────────────────────── */
+  --border-radius-extra-small: 4px;
+  --border-radius-small:       6px;
+  --border-radius-medium:      8px;
+  --border-radius-large:       16px;
+  --border-radius-max:         999px;
+
+  /* Semantic aliases (used in stories: tags, interactive, cards, card-large, circle) */
+  --border-radius-tags:        var(--border-radius-extra-small);
+  --border-radius-interactive: var(--border-radius-small);
+  --border-radius-cards:       var(--border-radius-medium);
+  --border-radius-card-large:  var(--border-radius-large);
+  --border-radius-circle:      var(--border-radius-max);
+
+  /* ── Shadows ─────────────────────────────────────────────────────────────── */
+  /* Primitives */
+  --shadow-1: 0 2px 8px 0 rgba(9, 30, 66, 0.10);
+  --shadow-2: 0 0px 40px 0 rgba(9, 30, 66, 0.32);
+
+  /* Semantic tokens */
+  --shadow-card:        2px 2px 8px 0 rgba(9, 30, 66, 0.10);
+  --shadow-page-header: 0 2px 4px 0 rgba(9, 30, 66, 0.10);
+  --shadow-modal:       0 0px 40px 0 rgba(9, 30, 66, 0.32);
+  --shadow-focus:       0 1px 12px 0 rgba(2, 118, 177, 0.25);
+  --shadow-subtle:      0 1px 3px 0 rgba(9, 30, 66, 0.06);
+
+  /* ── Borders ─────────────────────────────────────────────────────────────── */
+  /* Primitives */
+  --border-1: 1px solid var(--border-color-primary);
+  --border-2: 1px solid var(--border-color-primary);  /* applied as border-bottom */
+  --border-3: 2px solid var(--border-color-brand);
+
+  /* Semantic tokens */
+  --border-button:         1px solid var(--border-color-primary);
+  --border-tag:            1px solid var(--border-color-primary);
+  --border-card:           1px solid var(--border-color-secondary);
+  --border-focus:          1px solid var(--focus);
+  --border-header:         1px solid var(--border-color-primary);  /* use as border-bottom */
+  --border-highlight-card: 2px solid var(--border-color-brand);
+
+  /* ── Typography ──────────────────────────────────────────────────────────── */
+  --font-family-base: 'Fira Sans', sans-serif;
+
+  /* Primitive type scale */
+  --font-size-h1:                26px;
+  --font-size-h2:                24px;
+  --font-size-h3:                20px;
+  --font-size-h4:                18px;
+  --font-size-h5:                16px;
+  --font-size-large:             18px;
+  --font-size-default:           16px;
+  --font-size-small:             14px;
+  --font-size-extra-small:       12px;
+  --font-size-extra-extra-small: 10px;
+
+  --font-weight-regular:  400;
+  --font-weight-semibold: 600;
+
+  --line-height-h1:                40px;
+  --line-height-h2:                32px;
+  --line-height-h3:                28px;
+  --line-height-h4:                24px;
+  --line-height-h5:                22px;
+  --line-height-large:             24px;
+  --line-height-default:           22px;
+  --line-height-small:             18px;
+  --line-height-extra-small:       16px;
+  --line-height-extra-extra-small: 14px;
+
+  /* Semantic type tokens */
+  --type-page-title-size:        var(--font-size-h1);
+  --type-page-title-weight:      var(--font-weight-semibold);
+  --type-page-title-line-height: var(--line-height-h1);
+
+  --type-section-title-size:        var(--font-size-h3);
+  --type-section-title-weight:      var(--font-weight-regular);
+  --type-section-title-line-height: var(--line-height-h3);
+
+  --type-card-title-size:        var(--font-size-default);
+  --type-card-title-weight:      var(--font-weight-semibold);
+  --type-card-title-line-height: var(--line-height-default);
+
+  --type-paragraph-size:        var(--font-size-default);
+  --type-paragraph-weight:      var(--font-weight-regular);
+  --type-paragraph-line-height: var(--line-height-default);
+
+  --type-button-text-size:        var(--font-size-small);
+  --type-button-text-weight:      var(--font-weight-semibold);
+  --type-button-text-line-height: var(--line-height-small);
+
+  /* ── Button ──────────────────────────────────────────────────────────────── */
+  --button-bg-disabled: rgba(2, 118, 177, 0.40); /* blue-500 / 40% — button disabled state */
+}

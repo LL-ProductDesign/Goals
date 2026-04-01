@@ -99,7 +99,6 @@ export function ActivityCard({
     <div style={{
       display: 'flex',
       alignItems: 'center',
-      height: 196,
       background: color['bg-primary'],
       border: `1px solid ${color['border-primary']}`,
       borderRadius: radius['cards'],
@@ -127,41 +126,43 @@ export function ActivityCard({
         paddingLeft: 16,
         display: 'flex',
         flexDirection: 'column',
-        gap: 8,
+        gap: 16,
       }}>
-        <p style={{
-          fontFamily: "'Fira Sans', sans-serif",
-          fontSize: 20,
-          fontWeight: 600,
-          color: color['text-primary'],
-          lineHeight: '28px',
-          margin: 0,
-        }}>
-          {title}
-        </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <p style={{
             fontFamily: "'Fira Sans', sans-serif",
-            fontSize: 16,
-            fontWeight: 400,
+            fontSize: 24,
+            fontWeight: 600,
             color: color['text-primary'],
-            lineHeight: '22px',
+            lineHeight: '32px',
             margin: 0,
           }}>
-            {description}
+            {title}
           </p>
-          <p style={{
-            fontFamily: "'Fira Sans', sans-serif",
-            fontSize: 12,
-            fontWeight: 400,
-            color: color['text-secondary'],
-            lineHeight: '16px',
-            margin: 0,
-          }}>
-            {meta}
-          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <p style={{
+              fontFamily: "'Fira Sans', sans-serif",
+              fontSize: 16,
+              fontWeight: 400,
+              color: color['text-primary'],
+              lineHeight: '22px',
+              margin: 0,
+            }}>
+              {description}
+            </p>
+            <p style={{
+              fontFamily: "'Fira Sans', sans-serif",
+              fontSize: 12,
+              fontWeight: 400,
+              color: color['text-secondary'],
+              lineHeight: '16px',
+              margin: 0,
+            }}>
+              {meta}
+            </p>
+          </div>
         </div>
-        <div style={{ marginTop: 4 }}>
+        <div>
           <LearnlightButton
             variant={buttonVariant}
             size="m"
@@ -180,7 +181,7 @@ export function PrepareClassIllustration() {
   return (
     <svg width={120} height={100} viewBox="0 0 120 100" fill="none">
       {/* Document */}
-      <rect x="20" y="10" width="50" height="65" rx="4" fill="#e3f4fd" stroke={color['border-primary']} strokeWidth="1.5" />
+      <rect x="20" y="10" width="50" height="65" rx="4" fill={color['bg-blue-light']} stroke={color['border-primary']} strokeWidth="1.5" />
       <rect x="28" y="22" width="34" height="3" rx="1.5" fill={color['text-brand']} />
       <rect x="28" y="30" width="28" height="2" rx="1" fill={color['border-primary']} />
       <rect x="28" y="36" width="32" height="2" rx="1" fill={color['border-primary']} />
@@ -190,9 +191,9 @@ export function PrepareClassIllustration() {
       <circle cx="82" cy="33" r="4" fill={color['text-brand']} />
       <path d="M74 52c0-4.4 3.6-8 8-8s8 3.6 8 8" fill={color['text-brand']} />
       {/* Person 2 */}
-      <circle cx="98" cy="55" r="7" fill="#ecf9f1" />
-      <circle cx="98" cy="50" r="3.5" fill="#2c8150" />
-      <path d="M91.5 67c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5" fill="#2c8150" />
+      <circle cx="98" cy="55" r="7" fill={color['bg-green-light']} />
+      <circle cx="98" cy="50" r="3.5" fill={color['bg-green']} />
+      <path d="M91.5 67c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5" fill={color['bg-green']} />
     </svg>
   );
 }

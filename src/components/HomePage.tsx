@@ -3,13 +3,18 @@ import { color } from '../design-system/tokens';
 import { useBreakpoint } from '../design-system/useBreakpoint';
 import { Navbar } from './Navbar';
 import { StatsBar } from './StatsBar';
-import { ActivityCard, PrepareClassIllustration, ReviewReportIllustration } from './ActivityCard';
+import { RecommendationTile } from '../design-system/RecommendationTile';
 import { NextClassWidget } from './NextClassWidget';
 import { ProgramDetailsWidget } from './ProgramDetailsWidget';
+import { SetGoalsModal } from './SetGoalsModal';
+import { ChooseTopicsModal } from './ChooseTopicsModal';
 
 export function HomePage() {
   const [notifCount, setNotifCount] = useState(2);
   const [panelOpen, setPanelOpen] = useState(false);
+  const [goalsModalOpen, setGoalsModalOpen]   = useState(false);
+  const [topicsModalOpen, setTopicsModalOpen] = useState(false);
+  const [goalsDone, setGoalsDone]             = useState(false);
   const bp = useBreakpoint();
   const isMobile = bp === 'mobile';
   const isDesktop = bp === 'desktop';
@@ -82,21 +87,38 @@ export function HomePage() {
         }}>
           {/* Cards column */}
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: isMobile ? 8 : 16, minWidth: 0 }}>
-            <ActivityCard
-              illustration={<PrepareClassIllustration />}
-              title="Prepare an upcoming class"
-              description="Complete at least one of the activities prepared by your trainer for your class on Wednesday, 12 November at 13:30"
-              meta="Estimated time: up to 15 minutes"
-              buttonLabel="Prepare Class"
-              buttonVariant="primary"
+            <RecommendationTile
+              cardTitle="Prepare an upcoming class"
+              cardDescription="Complete at least one of the activities prepared by your trainer for your class on Wednesday, 12 November at 13:30"
+              cardInfo="Estimated time: up to 15 minutes"
+              ctaLabel="Prepare Class"
+              device={isMobile ? 'mobile' : 'desktop'}
+              style={{ width: '100%' }}
             />
-            <ActivityCard
-              illustration={<ReviewReportIllustration />}
-              title="Review your class report"
-              description="View your trainer's feedback from your class on Monday, 3 November at 11:00"
-              meta="Estimated time: up to 15 minutes"
-              buttonLabel="Review report"
-              buttonVariant="secondary"
+            <RecommendationTile
+              cardTitle="Set Learning Goals"
+              cardDescription="Set up your learning goals for your program"
+              cardInfo="Estimated time: up to 15 minutes"
+              cta={false}
+              secondaryAction
+              secondaryLabel="Set Goals"
+              onSecondaryAction={() => setGoalsModalOpen(true)}
+              device={isMobile ? 'mobile' : 'desktop'}
+              state={goalsDone ? 'done' : 'default'}
+              illustrationName="recommendation-goal"
+              style={{ width: '100%' }}
+            />
+
+            <SetGoalsModal
+              isOpen={goalsModalOpen}
+              onClose={() => setGoalsModalOpen(false)}
+              onContinue={() => { setGoalsModalOpen(false); setTopicsModalOpen(true); }}
+            />
+            <ChooseTopicsModal
+              isOpen={topicsModalOpen}
+              onClose={() => setTopicsModalOpen(false)}
+              onBack={() => { setTopicsModalOpen(false); setGoalsModalOpen(true); }}
+              onSave={() => { setTopicsModalOpen(false); setGoalsDone(true); }}
             />
           </div>
 

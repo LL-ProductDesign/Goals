@@ -1,5 +1,4 @@
 import React from 'react';
-import { color, radius } from './tokens';
 
 export type AvatarSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type AvatarStatus = 'online' | 'away' | 'busy' | 'offline' | 'none';
@@ -50,10 +49,10 @@ const SIZES: Record<AvatarSize, {
 };
 
 const STATUS_COLORS: Record<AvatarStatus, string> = {
-  online:  color['bg-green'],
-  away:    '#ffbb0f',
-  busy:    color['text-error'],
-  offline: color['text-disabled'],
+  online:  'var(--background-green)',
+  away:    'var(--yellow-500)',
+  busy:    'var(--text-error)',
+  offline: 'var(--text-disabled)',
   none:    'transparent',
 };
 
@@ -80,12 +79,12 @@ export function Avatar({
   const showIcon = !showImage && !showInitials;
 
   const bgColor = showInitials
-    ? color['bg-brand']
-    : color['bg-secondary'];
+    ? 'var(--background-brand)'
+    : 'var(--background-secondary)';
 
   const textColor = showInitials
-    ? color['text-invert']
-    : color['text-secondary'];
+    ? 'var(--text-invert)'
+    : 'var(--text-secondary)';
 
   return (
     <span
@@ -105,10 +104,10 @@ export function Avatar({
           justifyContent: 'center',
           width: dim.box,
           height: dim.box,
-          borderRadius: radius['circle'],
+          borderRadius: 'var(--border-radius-circle)',
           background: showImage ? 'transparent' : bgColor,
           color: textColor,
-          fontFamily: "'Fira Sans', sans-serif",
+          fontFamily: 'var(--font-family-base)',
           fontSize: dim.font,
           fontWeight: 600,
           overflow: 'hidden',
@@ -143,7 +142,7 @@ export function Avatar({
             height: dim.indicator,
             borderRadius: '50%',
             background: STATUS_COLORS[status],
-            border: `2px solid ${color['bg-primary']}`,
+            border: `2px solid var(--background-primary)`,
             boxSizing: 'border-box',
           }}
         />

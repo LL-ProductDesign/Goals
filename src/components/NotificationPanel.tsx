@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { color, shadow, radius } from '../design-system/tokens';
+import { color, scale, shadow, radius } from '../design-system/tokens';
 import { UnderlineTabs } from '../design-system/UnderlineTabs';
 import { LearnlightButton } from '../design-system/LearnlightButton';
 import { useBreakpoint } from '../design-system/useBreakpoint';
@@ -82,18 +82,18 @@ const INITIAL_NOTIFICATIONS: Notification[] = [
 
 const TAG_STYLES: Record<TagVariant, { bg: string; border: string; textColor: string }> = {
   error: {
-    bg: '#fef5f5',
-    border: '#fcdfe0',
+    bg: color['bg-error'],
+    border: color['bg-red-light'],
     textColor: color['text-error'],
   },
   warning: {
-    bg: '#fffbf5',
-    border: '#fef1dc',
+    bg: color['bg-warning'],
+    border: scale.orange[50],
     textColor: color['text-warning'],
   },
   info: {
     bg: color['bg-info'],
-    border: '#e3f4fd',
+    border: color['bg-blue-light'],
     textColor: color['text-brand'],
   },
 };
@@ -152,8 +152,8 @@ function NotificationItem({
 }) {
   const [hovered, setHovered] = useState(false);
 
-  const bgDefault = item.unread ? '#e3f4fd' : color['bg-primary'];
-  const bgHover   = item.unread ? '#d8eef9' : color['bg-secondary'];
+  const bgDefault = item.unread ? color['bg-blue-light'] : color['bg-primary'];
+  const bgHover   = item.unread ? scale.blue[100] : color['bg-secondary'];
 
   return (
     <div

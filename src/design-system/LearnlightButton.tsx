@@ -1,11 +1,4 @@
 import React from 'react';
-import { buttonTokens, typeScale, typeTokens } from './tokens';
-
-// Resolve button-text token → primitive → fontWeight
-const buttonTextPrimitive = typeScale.find(
-  t => t.name === typeTokens.find(tt => tt.token === 'button-text')?.primitive
-);
-const BUTTON_FONT_WEIGHT = buttonTextPrimitive?.fontWeight ?? 600;
 
 export interface LearnlightButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'style'> {
@@ -75,15 +68,45 @@ export interface LearnlightButtonProps
 }
 
 // Derive flat color map from the shared design token map
-const COLORS = Object.fromEntries(
-  Object.entries(buttonTokens).map(([variant, slots]) => [
-    variant,
-    Object.fromEntries(Object.entries(slots).map(([slot, t]) => [slot, t.value])),
-  ])
-) as {
-  [V in keyof typeof buttonTokens]: {
-    [S in keyof (typeof buttonTokens)[V]]: string;
-  };
+const COLORS: {
+  primary:   { bg: string; bgHover: string; bgDisabled: string; text: string; textDisabled: string; border: string };
+  secondary: { bg: string; bgHover: string; bgDisabled: string; text: string; textDisabled: string; border: string; borderDisabled: string };
+  txt:       { bg: string; bgHover: string; bgDisabled: string; text: string; textDisabled: string; border: string };
+  txt_grey:  { bg: string; bgHover: string; bgDisabled: string; text: string; textDisabled: string; border: string };
+} = {
+  primary: {
+    bg:          'var(--background-brand)',
+    bgHover:     'var(--blue-700)',
+    bgDisabled:  'var(--button-bg-disabled)',
+    text:        'var(--text-invert)',
+    textDisabled:'var(--text-invert)',
+    border:      'transparent',
+  },
+  secondary: {
+    bg:            'transparent',
+    bgHover:       'var(--background-blue-light)',
+    bgDisabled:    'transparent',
+    text:          'var(--text-brand)',
+    textDisabled:  'var(--button-bg-disabled)',
+    border:        'var(--border-color-brand)',
+    borderDisabled:'var(--button-bg-disabled)',
+  },
+  txt: {
+    bg:          'transparent',
+    bgHover:     'var(--background-blue-light)',
+    bgDisabled:  'transparent',
+    text:        'var(--text-brand)',
+    textDisabled:'var(--button-bg-disabled)',
+    border:      'transparent',
+  },
+  txt_grey: {
+    bg:          'transparent',
+    bgHover:     'var(--background-secondary)',
+    bgDisabled:  'transparent',
+    text:        'var(--text-secondary)',
+    textDisabled:'var(--button-bg-disabled)',
+    border:      'transparent',
+  },
 };
 
 const SIZES = {
@@ -100,7 +123,7 @@ const DEFAULT_ICON = (size: number) => (
   </svg>
 );
 
-/** Learning Design System — Button */
+/** Learnlight Design System — Button */
 export function LearnlightButton({
   variant = 'primary',
   size = 'm',
@@ -118,9 +141,15 @@ export function LearnlightButton({
   const palette = COLORS[variant];
   const dim = SIZES[size];
 
-  const p = palette as Record<string, string>;
-  const bg = isDisabled ? (p.bgDisabled ?? p.bg) : hovered ? p.bgHover : p.bg;
-  const color = isDisabled ? (p.textDisabled ?? p.text) : p.text;
+  const bg = isDisabled
+    ? 'bgDisabled' in palette ? palette.bgDisabled : palette.bg
+    : hovered
+      ? palette.bgHover
+      : palette.bg;
+
+  const color = isDisabled
+    ? 'textDisabled' in palette ? palette.textDisabled : palette.text
+    : palette.text;
 
   const border =
     variant === 'secondary'
@@ -149,10 +178,10 @@ export function LearnlightButton({
         background: bg,
         color,
         border,
-        borderRadius: 6,
+        borderRadius: 'var(--border-radius-interactive)',
         fontSize: dim.fontSize,
-        fontFamily: "'Fira Sans', sans-serif",
-        fontWeight: BUTTON_FONT_WEIGHT,
+        fontFamily: 'var(--font-family-base)',
+        fontWeight: 'var(--font-weight-semibold)' as React.CSSProperties['fontWeight'],
         lineHeight: 1,
         cursor: isDisabled ? 'not-allowed' : 'pointer',
         transition: 'background 0.15s, color 0.15s',

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { color } from './tokens';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -44,11 +43,11 @@ function Counter({ value }: { value: number | string }) {
       width: 16,
       height: 16,
       borderRadius: 999,
-      background: color['bg-brand'],
-      fontFamily: "'Fira Sans', sans-serif",
+      background: 'var(--background-brand)',
+      fontFamily: 'var(--font-family-base)',
       fontSize: 9,
       fontWeight: 600,
-      color: color['text-invert'],
+      color: 'var(--text-invert)',
       lineHeight: 1,
     }}>
       {value}
@@ -70,16 +69,16 @@ function TabBase({ item, active, stretched, onClick }: TabBaseProps) {
   const showBg = hovered && !isDisabled;
 
   const textColor = (active || (hovered && active))
-    ? color['text-brand']
+    ? 'var(--text-brand)'
     : isDisabled
-      ? color['text-disabled']
-      : color['text-secondary'];
+      ? 'var(--text-disabled)'
+      : 'var(--text-secondary)';
 
   const underlineColor = isDisabled
-    ? '#ebeef0'
+    ? 'var(--neutral-30)'
     : active
-      ? color['bg-brand']
-      : color['border-primary'];
+      ? 'var(--background-brand)'
+      : 'var(--border-color-primary)';
 
   const hasIcon = !!item.icon;
   const iconLeft = hasIcon && (item.iconPosition ?? 'left') === 'left';
@@ -113,7 +112,7 @@ function TabBase({ item, active, stretched, onClick }: TabBaseProps) {
         gap: (hasIcon || item.counter != null) ? 4 : 0,
         padding: '4px 16px',
         borderRadius: 4,
-        background: showBg ? color['bg-secondary'] : 'transparent',
+        background: showBg ? 'var(--background-secondary)' : 'transparent',
         transition: 'background 0.12s',
       }}>
         {iconLeft && (
@@ -122,7 +121,7 @@ function TabBase({ item, active, stretched, onClick }: TabBaseProps) {
           </span>
         )}
         <span style={{
-          fontFamily: "'Fira Sans', sans-serif",
+          fontFamily: 'var(--font-family-base)',
           fontSize: 14,
           fontWeight: 600,
           color: textColor,
@@ -156,7 +155,7 @@ function TabBase({ item, active, stretched, onClick }: TabBaseProps) {
 // ─── Public component ─────────────────────────────────────────────────────────
 
 /**
- * Learning Design System — Underline Tabs
+ * Learnlight Design System — Underline Tabs
  *
  * Tabs allow users to navigate between related views of content
  * while remaining in the context of the page.

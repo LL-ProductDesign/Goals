@@ -1,5 +1,5 @@
 import React from 'react';
-import { color } from '../design-system/tokens';
+import { color, scale, shadow } from '../design-system/tokens';
 
 interface StatCardProps {
   label: string;
@@ -20,7 +20,7 @@ function StatCard({ label, value, chart }: StatCardProps) {
       border: `1px solid ${color['border-primary']}`,
       borderRadius: 8,
       padding: 12,
-      boxShadow: '2px 2px 8px 0px rgba(9,30,66,0.1)',
+      boxShadow: shadow['card'],
       boxSizing: 'border-box',
     }}>
       <div>
@@ -62,7 +62,7 @@ function ProgressBarChart() {
         width: 80,
         height: 34,
         borderRadius: 4,
-        background: '#0276b1',
+        background: color['bg-brand'],
         flexShrink: 0,
       }} />
       {/* Light blue bar */}
@@ -70,7 +70,7 @@ function ProgressBarChart() {
         width: 10,
         height: 34,
         borderRadius: 4,
-        background: '#b7e4fb',
+        background: scale.blue[100],
         flexShrink: 0,
       }} />
       {/* 3 yellow bars */}
@@ -79,7 +79,7 @@ function ProgressBarChart() {
           width: 10,
           height: 34,
           borderRadius: 4,
-          background: '#ffebb5',
+          background: scale.yellow[100],
           flexShrink: 0,
         }} />
       ))}
@@ -97,7 +97,7 @@ function DonutChart({ percent, color: chartColor }: { percent: number; color: st
 
   return (
     <svg width={60} height={60} viewBox="0 0 60 60">
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#dfe4e6" strokeWidth={6} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke={color['border-primary']} strokeWidth={6} />
       <circle
         cx={cx} cy={cy} r={r}
         fill="none"
@@ -123,7 +123,7 @@ function AttendanceChart() {
 
   return (
     <svg width={60} height={60} viewBox="0 0 60 60">
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#dfe4e6" strokeWidth={6} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke={color['border-primary']} strokeWidth={6} />
       <circle
         cx={cx} cy={cy} r={r}
         fill="none"
