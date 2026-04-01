@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ReactSortable } from 'react-sortablejs';
 import { Modal } from '../design-system/Modal';
 import { Icon } from '../design-system/Icon';
