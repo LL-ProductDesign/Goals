@@ -1,5 +1,6 @@
 import React from 'react';
 import { LearnlightButton } from './LearnlightButton';
+import type { LearnlightButtonProps } from './LearnlightButton';
 import { Illustration } from './Illustration';
 import type { IllustrationName } from './Illustration';
 import { Icon } from './Icon';
@@ -12,8 +13,6 @@ export interface RecommendationTileProps {
   cardTitle?: string;
   /** Supporting description shown below the title */
   cardDescription?: string;
-  /** Secondary info line (e.g. estimated time) */
-  cardInfo?: string;
   /** Show the primary CTA button */
   cta?: boolean;
   /** Show the secondary action button */
@@ -30,8 +29,12 @@ export interface RecommendationTileProps {
   onSecondaryAction?: () => void;
   /** Custom label for the primary CTA button */
   ctaLabel?: string;
+  /** Visual variant for the primary CTA button */
+  ctaVariant?: LearnlightButtonProps['variant'];
   /** Custom label for the secondary action button */
   secondaryLabel?: string;
+  /** Visual variant for the secondary action button */
+  secondaryVariant?: LearnlightButtonProps['variant'];
   style?: React.CSSProperties;
 }
 
@@ -45,7 +48,6 @@ const FONT_FAMILY = "'Fira Sans', sans-serif";
 export function RecommendationTile({
   cardTitle = 'Complete your assessment',
   cardDescription = 'You have a pending assessment that needs your immediate attention',
-  cardInfo = 'Estimated time: up to 15 minutes',
   cta = true,
   secondaryAction = false,
   device = 'desktop',
@@ -54,7 +56,9 @@ export function RecommendationTile({
   onCta,
   onSecondaryAction,
   ctaLabel = 'Complete Assessment',
+  ctaVariant = 'primary',
   secondaryLabel = 'Schedule session',
+  secondaryVariant = 'secondary',
   style,
 }: RecommendationTileProps) {
   const isDefault = state === 'default';
@@ -201,19 +205,6 @@ export function RecommendationTile({
               >
                 {cardDescription}
               </p>
-              <p
-                style={{
-                  fontFamily: FONT_FAMILY,
-                  fontSize: 12,
-                  fontWeight: 400,
-                  lineHeight: '16px',
-                  color: color['text-secondary'],
-                  margin: 0,
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {cardInfo}
-              </p>
             </div>
           </div>
 
@@ -230,7 +221,7 @@ export function RecommendationTile({
             {cta && (
               <div style={isMobile ? { flex: '1 0 0', display: 'grid' } : undefined}>
                 <LearnlightButton
-                  variant="primary"
+                  variant={ctaVariant}
                   size="m"
                   text={ctaLabel}
                   onClick={onCta}
@@ -240,7 +231,7 @@ export function RecommendationTile({
             {secondaryAction && (
               <div style={isMobile ? { flex: '1 0 0', display: 'grid' } : undefined}>
                 <LearnlightButton
-                  variant="secondary"
+                  variant={secondaryVariant}
                   size="m"
                   text={secondaryLabel}
                   onClick={onSecondaryAction}

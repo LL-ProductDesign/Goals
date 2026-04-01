@@ -15,6 +15,7 @@ export function HomePage() {
   const [goalsModalOpen, setGoalsModalOpen]   = useState(false);
   const [topicsModalOpen, setTopicsModalOpen] = useState(false);
   const [goalsDone, setGoalsDone]             = useState(false);
+  const [goalsDismissed, setGoalsDismissed]   = useState(false);
   const bp = useBreakpoint();
   const isMobile = bp === 'mobile';
   const isDesktop = bp === 'desktop';
@@ -90,24 +91,28 @@ export function HomePage() {
             <RecommendationTile
               cardTitle="Prepare an upcoming class"
               cardDescription="Complete at least one of the activities prepared by your trainer for your class on Wednesday, 12 November at 13:30"
-              cardInfo="Estimated time: up to 15 minutes"
               ctaLabel="Prepare Class"
               device={isMobile ? 'mobile' : 'desktop'}
               style={{ width: '100%' }}
             />
-            <RecommendationTile
-              cardTitle="Set Learning Goals"
-              cardDescription="Set up your learning goals for your program"
-              cardInfo="Estimated time: up to 15 minutes"
-              cta={false}
-              secondaryAction
-              secondaryLabel="Set Goals"
-              onSecondaryAction={() => setGoalsModalOpen(true)}
-              device={isMobile ? 'mobile' : 'desktop'}
-              state={goalsDone ? 'done' : 'default'}
-              illustrationName="recommendation-goal"
-              style={{ width: '100%' }}
-            />
+            {!goalsDismissed && (
+              <RecommendationTile
+                cardTitle="Set Your Learning Goals and Topics"
+                cardDescription="Set up your learning preferences for a personalized experience"
+                  cta
+                ctaLabel="Set Goals"
+                ctaVariant="secondary"
+                onCta={() => setGoalsModalOpen(true)}
+                secondaryAction
+                secondaryLabel="Dismiss"
+                secondaryVariant="txt_grey"
+                onSecondaryAction={() => setGoalsDismissed(true)}
+                device={isMobile ? 'mobile' : 'desktop'}
+                state={goalsDone ? 'done' : 'default'}
+                illustrationName="recommendation-goal"
+                style={{ width: '100%' }}
+              />
+            )}
 
             <SetGoalsModal
               isOpen={goalsModalOpen}

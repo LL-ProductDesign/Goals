@@ -61,7 +61,7 @@ export function SetGoalsModal({ isOpen, onClose, onContinue }: SetGoalsModalProp
 
       <Modal
         isOpen={isOpen}
-        title="Set Learning Goals"
+        title="Set Your Learning Goals"
         primaryLabel="Continue"
         secondaryLabel="Cancel"
         onClose={onClose}
@@ -80,8 +80,7 @@ export function SetGoalsModal({ isOpen, onClose, onContinue }: SetGoalsModalProp
             lineHeight: 'var(--line-height-default)',
             color:      'var(--text-primary)',
           }}>
-            Drag the skills in order of what you most want to improve.<br />
-            Your #1 priority will receive the most focus in your personalized learning path.
+            Drag and reorder the skills based on what you want to improve most. Your top priority will get the most focus in your personalized learning path.
           </p>
 
           {/* Sortable skill list */}

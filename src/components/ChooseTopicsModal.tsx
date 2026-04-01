@@ -107,7 +107,7 @@ export function ChooseTopicsModal({ isOpen, onClose, onBack, onSave }: ChooseTop
             lineHeight: 'var(--line-height-h2)',
             color:      'var(--text-primary)',
           }}>
-            Choose Your Learning Focus
+            Choose Your Preferred Topics
           </span>
           <LearnlightButton
             variant="txt_grey"
@@ -139,10 +139,7 @@ export function ChooseTopicsModal({ isOpen, onClose, onBack, onSave }: ChooseTop
             lineHeight: 'var(--line-height-default)',
             color:      'var(--text-primary)',
           }}>
-            {'Select your '}
-            <strong style={{ fontWeight: 'var(--font-weight-semibold)' }}>top {MAX_TOPICS} topics</strong>
-            {' of interest '}
-            <span style={{ color: 'var(--text-error)' }}>to personalize your activity library.</span>
+            Select your top {MAX_TOPICS} topics to personalize your learning experience.
           </p>
 
           {/* Topic grid — 2 columns */}
